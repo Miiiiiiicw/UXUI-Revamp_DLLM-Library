@@ -9,6 +9,9 @@
     "start": "node dist/index.js",
     "start:inspect": "nodemon --exec \"node --require ts-node/register src/index.ts\"",
     "dev": "ts-node src/index.ts",
+    "dev:emulator": "node scripts/local/dev-emulator.js",
+    "emulator:credentials": "node scripts/local/create-emulator-credentials.js",
+    "emulator:make-admin": "node scripts/local/make-admin.js",
     "image": "ts-node src/imageCompression.ts --item aWKsDUyvNI3Nzc37XrJv"
   },
   "keywords": [],

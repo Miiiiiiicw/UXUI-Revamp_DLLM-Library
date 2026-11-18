@@ -1,0 +1,16 @@
+{
+  "apiKey": "demo-api-key",
+  "authDomain": "demo-bookguide.firebaseapp.com",
+  "projectId": "demo-bookguide",
+  "storageBucket": "demo-bookguide.appspot.com",
+  "appId": "demo-bookguide",
+  "graphql": "http://localhost:4000/graphql",
+  "useEmulators": true,
+  "branding": {
+    "appTitle": "Book Guide - Sydney",
+    "appDescription": "Book Guide is a community-driven platform for sharing and discovering books in Sydney.",
+    "logoPath": "/bookguide512.png",
+    "ogImagePath": "/bookguide512.png",
+    "faviconPath": "/favicon.ico"
+  }
+}

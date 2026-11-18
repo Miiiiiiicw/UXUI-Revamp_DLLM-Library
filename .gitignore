@@ -84,3 +84,7 @@ functions/package-lock.json
 .idea
 .gitignore
 client/src/dllm-client-config.json
+
+# Local emulator data (docs/LOCAL-EMULATORS.md)
+.emulator-data/
+*-debug.log

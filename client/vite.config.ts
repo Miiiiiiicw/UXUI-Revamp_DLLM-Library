@@ -1,9 +1,26 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import path from "path";
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
+  // `vite --mode emulator` (npm run dev:emulator) points every import of
+  // dllm-client-config.json at the local emulator config instead.
+  resolve:
+    mode === "emulator"
+      ? {
+          alias: [
+            {
+              find: /^(\.\.?\/)+dllm-client-config\.json$/,
+              replacement: path.resolve(
+                __dirname,
+                "src/dllm-client-config.emulator.json",
+              ),
+            },
+          ],
+        }
+      : undefined,
   server: {
     port: 3000,
     open: true,
@@ -32,4 +49,4 @@ export default defineConfig({
   optimizeDeps: {
     include: ["react", "react-dom"],
   },
-});
+}));

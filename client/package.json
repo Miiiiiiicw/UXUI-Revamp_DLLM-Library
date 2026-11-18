@@ -38,6 +38,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "dev:emulator": "vite --mode emulator",
     "tokens:build": "node scripts/generate-semantic-tokens.mjs",
     "tokens:export": "node scripts/export-design-tokens.mjs",
     "tokens:all": "npm run tokens:build && npm run tokens:export",

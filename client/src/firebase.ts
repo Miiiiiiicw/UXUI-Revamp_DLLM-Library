@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, connectAuthEmulator } from "firebase/auth";
 import * as config from "./dllm-client-config.json";
 
 const firebaseConfig = config;
@@ -8,6 +8,14 @@ const app = initializeApp(firebaseConfig);
 console.log("Firebase app initialized:", app.name);
 
 export const auth = getAuth(app);
+
+// Local development only: `npm run dev:emulator` swaps in
+// dllm-client-config.emulator.json (see vite.config.ts), which sets
+// useEmulators. The production config has no such key, so this never runs there.
+if ((config as { useEmulators?: boolean }).useEmulators) {
+  connectAuthEmulator(auth, "http://127.0.0.1:9099", { disableWarnings: true });
+  console.log("Using Firebase Auth emulator (local data only)");
+}
 
 // Temporary compatibility shim for the existing Home action. It no longer
 // uses Firebase's verification-link email. Existing unverified users are sent
